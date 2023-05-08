@@ -1,31 +1,14 @@
-﻿namespace Turtle;
+﻿using Turtle.Writer.Art;
 
-public static class Shell{
+namespace Turtle;
 
-    public static void Main(){
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.White;
+public static class Program{
 
-        string[] name = new string[]{"T", "u", "r", "t", "l", "e", "-", "s", "h", "e", "l", "l"};
+    public static void Main(string[] args){
+        //TurtleArt.Startup();
 
-        
-        for(int i = 0; i < name.Length; i++){
-            if(i % 2 == 0){
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-            }
-            else{
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-            }
+        Shell.Start(args);
 
-            Console.Write(name[i]);
-
-            Thread.Sleep(100);
-        }
-
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-        Console.WriteLine("\n🐢  The slowest shell available  🐢");
-
-        Console.ForegroundColor = ConsoleColor.White;
     }
 }
 
