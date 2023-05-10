@@ -8,6 +8,9 @@ public static class CommandHandler{
         if(TurtleCommands.AvailableCommands().Any(x => x == command)){
             TurtleCommands.ParseCommand(command);
         }
+        else{
+            WindowsCommands.ParseCommand(command);
+        }
     }
 
     public static string? PromptCommand(){
