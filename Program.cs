@@ -5,7 +5,10 @@ namespace Turtle;
 public static class Program{
 
     public static void Main(string[] args){
-        //TurtleArt.Startup();
+        bool debug = true; 
+        if (!debug){
+            TurtleArt.Startup();
+        }
 
         Shell.Start(args);
 

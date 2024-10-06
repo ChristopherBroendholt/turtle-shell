@@ -25,5 +25,8 @@ public static class TurtleArt{
         Console.WriteLine("\n🐢  The slowest shell available  🐢");
 
         Console.ForegroundColor = ConsoleColor.White;
+
+        Thread.Sleep(1000);
+
     }
 }

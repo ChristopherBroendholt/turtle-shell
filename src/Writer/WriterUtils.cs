@@ -17,21 +17,6 @@ public static class WriterUtils{
         Reset();
     }
 
-    public static void Write(string[] text, int delay){
-        throw new NotImplementedException();
-    }
-
-    public static void Write(string[] text, int delay, ConsoleColor[] colors){
-        throw new NotImplementedException();
-    }
     
-    public static void Write(string[] text, int delay, ConsoleColor textColor){
-        throw new NotImplementedException();
-    }
-
-    public static void Write(string[] text, int delay, ConsoleColor textColor, ConsoleColor backgroundColor){
-        throw new NotImplementedException();
-    }
-
 
 }

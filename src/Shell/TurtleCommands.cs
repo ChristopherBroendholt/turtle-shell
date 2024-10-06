@@ -2,32 +2,41 @@ namespace Turtle;
 
 public static class TurtleCommands{
 
+    private static string CommandRoot = string.Empty;
+    private static string[] CommandArguments = { "" };
+
     private static Dictionary<string, Action> Commands = new Dictionary<string, Action>(){
-        {"exit", () => {Shell.Running = false; }}
+        {"exit", () => {Shell.Running = false; }},
+        {"ls", () => {ListDirectoryAction.ListDirectory(); }},
+        {"dir", () => {ListDirectoryAction.ListDirectory(); }},
+        {"cd", () => {DirectoryTraversalAction.Traverse(CommandArguments); } }
     };
 
     public static void ParseCommand(string? command){
-        if(!ValidCommand(command)){
+        if(command == null){
+            return;
+        }
+        
+        CommandRoot = command.Split(" ").First();
+        CommandArguments = command.Split(" ").Skip(1).ToArray();
+
+        if(!ValidCommand(CommandRoot)){
             return;
         }
 
-        Action action = Commands[command!];
+        Action action = Commands[CommandRoot];
         action();
     }
 
-    private static bool ValidCommand(string? command){
-        if(String.IsNullOrEmpty(command)){
+    private static bool ValidCommand(string? commandRoot){
+        if(String.IsNullOrEmpty(commandRoot)){
             return false;
         }
 
-        if(Commands.Any(x => x.Key == command)){
+        if(Commands.Any(x => x.Key == commandRoot)){
             return true;
         }
         
         return false;
-    }
-
-    public static string[] AvailableCommands(){
-        return Commands.Keys.ToArray();
     }
 }
